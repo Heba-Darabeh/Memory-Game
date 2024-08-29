@@ -1,0 +1,117 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: monospace;
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background-color: #191a26;
+}
+
+.container {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 30px;
+  background-color: #3235428b;
+  padding: 40px 60px;
+}
+
+h2 {
+  font-size: 32px;
+  color: #ffffff;
+  text-transform: uppercase;
+  letter-spacing: 4px;
+}
+
+.reset {
+  padding: 15px 20px;
+  color: #122675;
+  background-color: #ffffff;
+  border: none;
+  font-size: 16px;
+  letter-spacing: 4px;
+  cursor: pointer;
+  font-weight: 600;
+}
+
+.reset:focus {
+  color: #ffffff;
+  background-color: #191a26;
+}
+
+.game {
+  width: 440px;
+  height: 440px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.game-board {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.card {
+  position: relative;
+  height: 100px;
+  width: 100px;
+  cursor: pointer;
+}
+
+.card img {
+  position: absolute;
+  backface-visibility: hidden; /* Prevents the back image from showing when the card is flipped */
+  transition: transform 0.5s;
+}
+
+.front-face {
+  height: 100px;
+  width: 100px;
+  cursor: pointer;
+  z-index: 2;
+}
+
+.back-face {
+  height: 100px;
+  width: 100px;
+  cursor: pointer;
+  z-index: 1; /* Back face underneath */
+  transform: rotateY(180deg);
+}
+
+.card.flipped .front-face {
+  transform: rotateY(180deg); /* Hide front face on flip */
+}
+
+.card.flipped .back-face {
+  transform: rotateY(0deg); /* Show back face on flip */
+}
+
+.win-message {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  padding: 20px;
+  background-color: #191a26;
+  color: #ffffff;
+  font-size: 2em;
+  text-align: center;
+  border-radius: 10px;
+  z-index: 3;
+}
+
+.next-page {
+  align-self: end;
+  padding: 15px 20px;
+}
